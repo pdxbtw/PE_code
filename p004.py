@@ -3,8 +3,8 @@
 # made from the product of two digit numbers is 9009 = 91 * 99.
 # Find the largest palindrome made from the product of two 3-digit numbers
 
+from decimal import *
 import time
-import decimal
 getcontext().prec = 3
 start = time.clock()
 
@@ -20,3 +20,4 @@ for i in range(999, 900, -1):
 end = time.clock()
 print(max_val)
 print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
+

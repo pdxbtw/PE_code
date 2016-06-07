@@ -3,8 +3,8 @@
 # from 1 to 10 without any remainder. What is the smallest positive number
 # this is evenly divisible by all of the numbers from 1 to 20?
 
+from decimal import *
 import time
-import decimal
 getcontext().prec = 3
 start = time.clock()
 
