@@ -1,6 +1,3 @@
-#!/home/wilson_b/anaconda3/bin/python
-# !/home/fure_j/Software/pypy3-2.4-linux_x86_64-portable/bin/pypy 
-
 # Project Euler - Problem 25
 # -----------------------------------------------------------------------------
 # The Fibonacci sequence is defined by the recurence relation:

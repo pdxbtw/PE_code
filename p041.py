@@ -1,5 +1,3 @@
-#!/home/ben/anaconda3/bin/python3
-
 # Project Euler - Problem 41
 # -----------------------------------------------------------------------------
 # We shall say that an n-digit number is pandigital if it makes use of all the
