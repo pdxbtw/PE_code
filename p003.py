@@ -2,10 +2,8 @@
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143 ?
 
-from decimal import *
 import time
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 num = 600851475143
 max_prime = 3
@@ -17,7 +15,6 @@ while count <= num:
                 num = num / count
         else:
                 count += 2
-end = time.clock()
+end = time.time()
 print(max_prime)
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
-
+print('Processing Time: {} seconds'.format(end-start))

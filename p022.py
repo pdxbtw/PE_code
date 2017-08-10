@@ -10,26 +10,21 @@
 #
 # What is the total of all the name scores in the file?
 
-# from decimal import *
-# exec(open("V:/sandbox_wilson_b/PE/PE_022.py").read())
-
 import time
-import decimal
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
-f = open('V:/sandbox_wilson_b/PE/files/p022_names.txt', 'r')
+f = open('p022_names.txt', 'r')
 s = f.read();
 f.close()
 s = s.replace(",", "\n")
 s += "\n"
 s = s.replace('"', "")
-g = open('V:/sandbox_wilson_b/PE/files/temp.txt', 'w')
+g = open('temp.txt', 'w')
 g.write(s)
 g.close()
 
 
-g = open('V:/sandbox_wilson_b/PE/files/temp.txt', 'r')
+g = open('temp.txt', 'r')
 names = ["$"]*6000
 n = 0
 for line in g:
@@ -47,6 +42,6 @@ for i in range(n):
                 temp_sum += (ord(temp[j]) - 64)
         prodsum += (temp_sum * (i+1))
 
-end = time.clock()
+end = time.time()
 print(prodsum)
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
+print('Processing Time: {} seconds'.format(end-start))

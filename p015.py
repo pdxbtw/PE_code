@@ -5,6 +5,11 @@
 # How many such routes are there through a 20x20 grid?
 
 import math
-ans = math.factorial(40)/(math.factorial(20) * math.factorial(20))
-print(ans)
+import time
+start = time.time()
 
+ans = math.factorial(40)/(math.factorial(20) * math.factorial(20))
+
+end = time.time()
+print(ans)
+print('Processing Time: {} seconds'.format(end-start))

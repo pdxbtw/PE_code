@@ -5,10 +5,8 @@
 # we get 3, 5, 6, and 9. The sum of these multiples is 23. Find the sum of all
 # the multiples of 3 or 5 below 1000.
 
-from decimal import *
 import time
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 total = 0
 count = 1
@@ -18,7 +16,6 @@ while count < 1000:
     elif count % 5 == 0:
         total += count
     count += 1	
-end = time.clock()
+end = time.time()
 print(total)
-print('Processing Time:',  Decimal(end) - Decimal(start), 'seconds')
-
+print('Processing Time: {} seconds'.format(end-start))

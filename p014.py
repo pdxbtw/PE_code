@@ -12,9 +12,7 @@
 # Which starting number, under 1,000,000 produces the longest chain?
 
 import time
-import decimal
-#getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 max_val = 0
 max_num = 0
@@ -38,8 +36,8 @@ while num < 1000000:
     if num % 10000 == 0:
         print(num)
 
-end = time.clock()
+end = time.time()
 print('\a')
 print(max_val)
 print(max_num)
-print("Processing Time:", end - start, "seconds")
+print('Processing Time: {} seconds'.format(end-start))

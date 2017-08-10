@@ -7,10 +7,8 @@
 # By considering the terms in the Fibonacci sequence whose values do not
 # exceed four million, find the sum of the even-valued terms.
 
-from decimal import *
 import time
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 a = 0
 b = 1
@@ -23,7 +21,7 @@ while fib < 4e6:
 	a = b
 	b = fib
 	fib = a + b
-end = time.clock()
+end = time.time()
 print(total)
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
+print('Processing Time: {} seconds'.format(end-start))
 

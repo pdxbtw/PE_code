@@ -4,9 +4,7 @@
 
 import math
 import time
-import decimal
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 stop_val = 2e6
 primes = (2,)
@@ -27,7 +25,7 @@ while test_val < stop_val:
     if isprime:
         primes += (test_val,)
     test_val += 2
-print(sum(primes))
-end = time.clock()
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
 
+end = time.time()
+print(sum(primes))
+print('Processing Time: {} seconds'.format(end-start))

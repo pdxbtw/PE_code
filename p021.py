@@ -9,13 +9,9 @@ import math
 import time
 start = time.clock()
 
-
 num = 0
 tot = 0
 while num < 1e4:
-    
-
-
+    num = 1e4
 end = time.clock()
-
-print('Processing Time:', end - start, 'seconds')
+print('Processing Time: {} seconds'.format(end-start))

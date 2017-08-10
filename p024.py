@@ -6,12 +6,11 @@
 # permutations of 0, 1 and 2 are:
 #   012 021 102 120 201 210
 # What is the millionth lexicographic permutation of the 0,1,2,3,4,5,6,7,8,9 ?
-from decimal import *
+
 import time 
 import math
-import winsound
-getcontext().prec = 3
-start = time.clock()
+# import winsound
+start = time.time()
 
 num_dig = 10
 word = [i for i in range(num_dig)]
@@ -29,9 +28,8 @@ else:
                 word.insert(count, temp)
                 order_num %= fact[i-1]
                 count += 1
+
+end = time.time()
 print(word)                
-end = time.clock()
-
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
-winsound.Beep(440, 1000)
-
+print('Processing Time: {} seconds'.format(end-start))
+# winsound.Beep(440, 1000)

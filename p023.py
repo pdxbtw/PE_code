@@ -23,9 +23,7 @@
 
 import time
 import math
-import decimal
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 i_min = 12
 i_max = 28123
@@ -58,10 +56,10 @@ for i in range(n, 0, -1):
                 if test in raw:
                         raw.remove(test)
                 low += 1
-end = time.clock()
+end = time.time()
 print(sum(raw))
 print(len(raw))
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
+print('Processing Time: {} seconds'.format(end-start))
 # Answer: 4179871
 # Time: 3.21E+3 seconds
 

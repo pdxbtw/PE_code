@@ -6,9 +6,7 @@
 # Find the product of a*b*c.
 
 import time
-import decimal
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 max_val = 1000
 a = 1
@@ -24,7 +22,5 @@ while a < c+1:
 	a += 1
 	b = a + 1
 	c = max_val - a - b
-end = time.clock()
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
-print(count)
-
+end = time.time()
+print('Processing Time: {} seconds'.format(end-start))

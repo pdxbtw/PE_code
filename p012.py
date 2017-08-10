@@ -16,10 +16,8 @@
 # ----------------------------------------------------------------------------- 
 
 import time
-import decimal
 import math
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 nth = 1
 num = 1
@@ -36,8 +34,6 @@ while not finished:
 	if factor >= 500:
 		finished = True
 
-end = time.clock()
-# print(nth)
+end = time.time()
 print(num)
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
-
+print('Processing Time: {} seconds'.format(end-start))

@@ -28,10 +28,8 @@ def isprime(num):
                 test += 2
         return 1
 
-from decimal import *
 import time
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 max_prime = 0
 for p in permute([7,6,5,4,3,2,1]):
@@ -42,6 +40,6 @@ for p in permute([7,6,5,4,3,2,1]):
                 if temp > max_prime:
                         max_prime = temp
 
-end = time.clock()
+end = time.time()
 print(max_prime)
-print("Processing time:", Decimal(end) - Decimal(start), "seconds")
+print('Processing Time: {} seconds'.format(end-start))

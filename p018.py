@@ -26,9 +26,7 @@
 # 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
 import time
-import decimal
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 tri = [
 		[75],
@@ -56,7 +54,6 @@ for r in range(len(tri)-1, 0, -1):
 			tri[r-1][c] = a
 		else:
 			tri[r-1][c] = b
-end = time.clock()
+end = time.time()
 print(tri[0][0])
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
-
+print('Processing Time: {} seconds'.format(end-start))

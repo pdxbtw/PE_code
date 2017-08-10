@@ -11,10 +11,8 @@
 # What is the index of the first term in the Fibonacci sequence to contain 
 # 1000 digits?
 
-from decimal import *
 import time
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 a = 0
 b = 1
@@ -30,7 +28,6 @@ while True:
         if len(fib_s) == max_dig:
                 break
 
-end = time.clock()
+end = time.time()
 print(index)
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
-
+print('Processing Time: {} seconds'.format(end-start))

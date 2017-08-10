@@ -2,6 +2,9 @@
 # ----------------------------------------------------------------------------- 
 # Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 
+import time
+start = time.time()
+
 num = [37107287533902102798797998220837590246510135740250, 
 		46376937677490009712648124896970078050417018260538,
 		74324986199524741059474233309513058123726617309629,
@@ -104,5 +107,6 @@ num = [37107287533902102798797998220837590246510135740250,
 		53503534226472524250874054075591789781264330331690]
 num_sum = sum(num)
 temp_s = str(num_sum)
+end = time.time()
 print(temp_s[0:10])
-
+print('Processing Time: {} seconds'.format(end-start))

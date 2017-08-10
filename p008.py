@@ -5,9 +5,7 @@
 # this product?
 
 import time
-import decimal
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 num = ('73167176531330624919225119674426574742355349194934'+
 '96983520312774506326239578318016984801869478851843'+ 
@@ -42,7 +40,6 @@ for i in range(num_dig - span + 1):
 			temp_max *= int(temp_num[j])
 		if temp_max > max_val:
 			max_val = temp_max
-end = time.clock()
+end = time.time()
 print(max_val)
-print('Processing Time:', Decimal(end) - Decimal(start), 'seconds')
-
+print('Processing Time: {} seconds'.format(end-start))
