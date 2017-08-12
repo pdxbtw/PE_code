@@ -6,15 +6,15 @@
 import time
 start = time.time()
 
-max_val = 0
+max_val = None
 for i in range(999, 900, -1):
-	for j in range(i, 900, -1):
-		a = i * j
-		s = str(a)
-		if s[0] == s[-1] and s[1] == s[-2] and s[2] == s[-3]:
-			if a > max_val:
-				max_val = a
+    for j in range(i, 900, -1):
+        a = i * j
+        s = str(a)
+        if s[0] == s[-1] and s[1] == s[-2] and s[2] == s[-3]:
+            if a > max_val:
+                max_val = a
 
-end = time.time()
+stop = time.time()
 print(max_val)
-print('Processing Time: {} seconds'.format(end-start))
+print('Time: {} seconds'.format(stop - start))
