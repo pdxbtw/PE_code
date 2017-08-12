@@ -6,21 +6,24 @@
 # Find the product of a*b*c.
 
 import time
-start = time.time()
 
-max_val = 1000
-a = 1
-b = 2
-c = max_val - a - b
-while a < c+1:
-	while b < c:
-		if (a**2 + b**2) == c**2:
-			print(a*b*c)
-			break
-		c -= 1
-		b += 1
-	a += 1
-	b = a + 1
-	c = max_val - a - b
-end = time.time()
-print('Processing Time: {} seconds'.format(end-start))
+
+def pythagoreanTriplet(tripleSum):
+    a = 1
+    b = 2
+    c = tripleSum - a - b
+    while a < c+1:
+        while b < c:
+            if (a**2 + b**2) == c**2:
+                return (a*b*c)
+            c -= 1
+            b += 1
+        a += 1
+        b = a + 1
+        c = tripleSum - a - b
+
+
+start = time.time()
+print(pythagoreanTriplet(1000))
+stop = time.time()
+print('Time: {} seconds'.format(stop-start))
