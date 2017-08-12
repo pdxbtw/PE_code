@@ -4,28 +4,33 @@
 
 import math
 import time
+
+
+def primeSieve(bound):
+    aproxPrimes = bound / (math.log(bound) - 1.08366)   # Prime number theorem
+    primeList = [0] * math.floor(aproxPrimes)
+    primeList[0] = 2
+    testVal = 1
+    index = 1
+    while testVal <= bound:
+        testVal += 2
+        prime = True
+        searchStop = math.sqrt(testVal)
+        for i in primeList:
+            if i > searchStop:
+                break
+
+            if not testVal % i:
+                prime = False
+                break
+        if prime:
+            primeList[index] = testVal
+            index += 1
+    return sum(primeList)
+
+
 start = time.time()
-
-stop_val = 2e6
-primes = (2,)
-test_val = 3
-isprime = True
-run = True
-while test_val < stop_val:
-    stop = math.floor(math.sqrt(test_val))
-    isprime = True
-    for i in range(len(primes) + 1):
-        if primes[i] > stop:
-            break
-        
-        if test_val % primes[i + 1] == 0:
-            isprime = False
-            break
-
-    if isprime:
-        primes += (test_val,)
-    test_val += 2
-
-end = time.time()
-print(sum(primes))
-print('Processing Time: {} seconds'.format(end-start))
+primeSum = primeSieve(2000000)
+stop = time.time()
+print(primeSum)
+print('Time: {} seconds'.format(stop-start))
