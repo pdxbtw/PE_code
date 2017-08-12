@@ -44,7 +44,7 @@ num = ('73167176531330624919225119674426574742355349194934' +
        '05886116467109405077541002256983155200055935729725' +
        '71636269561882670428252483600823257530420752963450')
 
-stop = time.time()
 max_val = windowProd(num, 13)
+stop = time.time()
 print(max_val)
-print('Processing Time: {} seconds'.format(stop-start))
+print('Time: {} seconds'.format(stop-start))
