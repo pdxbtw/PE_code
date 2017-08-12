@@ -9,12 +9,15 @@
 # hundred natural numbers and the square of the sum.
 
 import time
-start = time.time()
 
-top = 100
-total = int((top * (top + 1)/2)**2)
-for i in range(top):
-	total -= (i+1)**2
-end = time.time()
-print(total)
-print('Processing Time: {} seconds'.format(end-start))
+def diffSquares(bound):
+    # Use formulas to solve directly
+    square_of_sums = ((bound + 1) * bound / 2)**2
+    sum_of_squares = (2 * bound + 1) * (bound + 1) * bound / 6
+    return int(square_of_sums - sum_of_squares)
+
+start = time.time()
+diff = diffSquares(100)
+stop = time.time()
+print(diff)
+print('Time: {} seconds'.format(stop - start))
