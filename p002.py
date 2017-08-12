@@ -7,6 +7,7 @@
 
 import time
 
+
 # Starting with 1,1,2,3,5,8,13,21,34... we can see that every third value
 # in the sequence is even and we can skip the conditional statements
 def evenFibonaciSum(top_limit):
@@ -18,6 +19,7 @@ def evenFibonaciSum(top_limit):
         a, b = b, a+b
         a, b = b, a+b
     return total
+
 
 start = time.time()
 total = evenFibonaciSum(4e6)

@@ -6,6 +6,7 @@
 import time
 import math
 
+
 # OPTION 1: Loop with conditional statements
 def fizzBuzzLoop(top_limit):
     total = 0
@@ -17,6 +18,7 @@ def fizzBuzzLoop(top_limit):
             total += count
         count += 1
     return total
+
 
 start = time.time()
 total = fizzBuzzLoop(1000)
@@ -35,6 +37,7 @@ def fizzBuzzDirect(top_limit):
     j = math.floor(top_limit/5)
     k = math.floor(top_limit/15)
     return int((3*i*(i+1) + 5*j*(j+1) - 15*k*(k+1))*0.5)
+
 
 start = time.time()
 val = 1000 - 0.1

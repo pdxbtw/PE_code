@@ -3,10 +3,11 @@
 # What is the largest prime factor of the number 600851475143 ?
 import time
 
+
 def biggestPrimeFact(value):
     max_prime = None        # Initializing max_prime factor
     while value % 2 == 0:   # Check if even
-        value = value / 2 
+        value = value / 2
         max_prime = 2
 
     count = 3
@@ -14,8 +15,10 @@ def biggestPrimeFact(value):
         if not value % count:
             value = value / count
             max_prime = count
-        else: count += 2
+        else:
+            count += 2
     return max_prime
+
 
 start = time.time()
 max_prime = biggestPrimeFact(600851475143)
