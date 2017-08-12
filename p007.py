@@ -4,30 +4,37 @@
 
 import math
 import time
+
+
+def primeSieve(numPrime, rtrnList=False):
+    primeList = [None] * numPrime
+    primeList[0] = 2
+    testVal = 1
+    index = 1
+    while index < numPrime:
+        testVal += 2
+        prime = True
+        searchStop = math.sqrt(testVal)
+        for i in primeList:
+            if i > searchStop:
+                break
+
+            if not testVal % i:
+                prime = False
+                break
+
+        if prime:
+            primeList[index] = testVal
+            index += 1
+
+    if not rtrnList:
+        return primeList[-1]
+    else:
+        return primeList
+
+
 start = time.time()
-
-nprime = 10001
-primes = (2,)
-test_val = 3
-isprime = True
-run = True
-while run:
-    stop = math.floor(math.sqrt(test_val))
-    for i in range(len(primes)):
-        if primes[i] > stop:
-            break
-        
-        if test_val % primes[i] == 0:
-            isprime = False
-            break
-        else:
-            isprime = True
-
-    if isprime:
-        primes += (test_val,)
-        if len(primes) == nprime:
-            run = False
-    test_val += 2
-end = time.time()
-print(primes[-1])
-print('Processing Time: {} seconds'.format(end-start))
+val = primeSieve(10001, rtrnList=False)
+stop = time.time()
+print(val)
+print('Time: {} seconds'.format(stop-start))
