@@ -10,10 +10,9 @@
 # 	15: 1, 3, 5, 15
 # 	21: 1, 3, 7, 21
 # 	28: 1, 2, 4, 7, 14, 28
-# 
 # We can see that 28 is the first triangle number to have over five divisors.
 # What is the value of the first triangle number to have over 500 divisors?
-# ----------------------------------------------------------------------------- 
+# -----------------------------------------------------------------------------
 
 import time
 import math
@@ -36,6 +35,7 @@ def triangleFactors(max_val):
         if factors >= max_val:
             finished = True
     return triangleNum
+
 
 start = time.time()
 value = triangleFactors(500)
