@@ -5,7 +5,6 @@
 # b are an amicable pair and each of a and b are called amicable numbers.
 # Evaluate the sum of all the amicable numbers under 10,000
 
-import math
 import time
 start = time.clock()
 

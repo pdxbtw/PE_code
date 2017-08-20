@@ -7,9 +7,7 @@
 import math
 import time
 start = time.time()
-
 ans = math.factorial(40)/(math.factorial(20) * math.factorial(20))
-
-end = time.time()
+stop = time.time()
 print(ans)
-print('Processing Time: {} seconds'.format(end-start))
+print('Time: {} seconds'.format(stop-start))

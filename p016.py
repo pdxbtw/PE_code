@@ -13,6 +13,6 @@ total = 0
 for n in range(length):
     total += int(s[n])
 
-end = time.time()
+stop = time.time()
 print(total)
-print('Processing Time: {} seconds'.format(end-start))
+print('Time: {} seconds'.format(stop-start))

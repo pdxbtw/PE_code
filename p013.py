@@ -107,6 +107,6 @@ num = [37107287533902102798797998220837590246510135740250,
        53503534226472524250874054075591789781264330331690]
 num_sum = sum(num)
 temp_s = str(num_sum)
-end = time.time()
+stop = time.time()
 print(temp_s[0:10])
-print('Processing Time: {} seconds'.format(end-start))
+print('Time: {} seconds'.format(stop-start))
