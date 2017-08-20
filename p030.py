@@ -10,12 +10,8 @@
 # Find the sum of all the numbers that can be written as the sum of 5th powers
 # of their digits.
 
-from decimal import *
 import time
-import pdb
-getcontext().prec = 3
-#pdb.set_trace()
-start = time.clock()
+start = time.time()
 
 count = 10
 sum_t = 0
@@ -28,6 +24,6 @@ while count < 2e5:
                 sum_t += sum
         count += 1
 
-end = time.clock()
+stop = time.time()
 print(sum_t)
-print("Processing time:", Decimal(end) - Decimal(start), "seconds")
+print("Time: {} seconds".format(stop-start))

@@ -14,10 +14,8 @@
 # It can be verified that the sum of the numbers on the diagonal is 101.
 # What is the sum of the numbers on the diagonal in a 1001 by 1001 spiral?
 
-from decimal import *
 import time
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 order = 1001
 sum = 0
@@ -34,6 +32,6 @@ for i in range(order):
         prev = next
 
 
-end = time.clock()
+stop = time.time()
 print(sum)
-print("Processing time:", Decimal(end) - Decimal(start), "seconds")
+print("Time: {} seconds".format(stop-start))
