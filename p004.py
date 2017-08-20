@@ -5,8 +5,7 @@
 
 import time
 start = time.time()
-
-max_val = None
+max_val = 0
 for i in range(999, 900, -1):
     for j in range(i, 900, -1):
         a = i * j
