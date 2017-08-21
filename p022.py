@@ -42,6 +42,6 @@ for i in range(n):
                 temp_sum += (ord(temp[j]) - 64)
         prodsum += (temp_sum * (i+1))
 
-end = time.time()
+stop = time.time()
 print(prodsum)
-print('Processing Time: {} seconds'.format(end-start))
+print('Time: {} seconds'.format(stop-start))
