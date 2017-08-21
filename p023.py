@@ -26,18 +26,18 @@ def genAbundList(bound):
     nmin = 12
     nmax = bound - nmin
     abund = []
-    for i in range(nmax, nmin, -1):
+    for i in range(nmin, nmax+1):
         divsum = 1
+        fact = 2
         f_max = math.sqrt(i)
-        fact = 1
-        while fact < f_max:
-            fact += 1
+        while fact <= f_max:
             if not i % fact:
                 f_low = fact
                 f_high = i // fact
                 if f_low == f_high:  # repeated factors
                     f_high = 0
                 divsum += f_low + f_high
+            fact += 1
         if divsum > i:
             abund.append(i)
     return abund
@@ -46,9 +46,8 @@ def genAbundList(bound):
 def findAbundSums(abundList, bound):
     abundSum = [j+i for j in abundList for i in abundList if j+i <= bound]
     abundSum = sum(set(abundSum))
-    print(abundSum)
-    n = ((bound * (bound + 1)) // 2) - abundSum
-    return n 
+    n = (bound * (bound + 1) // 2) - abundSum
+    return n
 
 start = time.time()
 bound = 28123 
