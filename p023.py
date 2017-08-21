@@ -20,42 +20,42 @@
 
 import time
 import math
+
+
+def genAbundList(bound):
+    nmin = 12
+    nmax = bound - nmin
+    abund = []
+    for i in range(nmax, nmin, -1):
+        divsum = 1
+        f_max = math.sqrt(i)
+        fact = 1
+        while fact < f_max:
+            fact += 1
+            if not i % fact:
+                f_low = fact
+                f_high = i // fact
+                if f_low == f_high:  # repeated factors
+                    f_high = 0
+                divsum += f_low + f_high
+        if divsum > i:
+            abund.append(i)
+    return abund
+
+
+def findAbundSums(abundList, bound):
+    abundSum = [j+i for j in abundList for i in abundList if j+i <= bound]
+    abundSum = sum(set(abundSum))
+    print(abundSum)
+    n = ((bound * (bound + 1)) // 2) - abundSum
+    return n 
+
 start = time.time()
-
-i_min = 12
-i_max = 28123
-abund = []
-for i in range(i_min, i_max+1, 1):
-    divsum = 1
-    f_max = math.floor(math.sqrt(i))
-    fact = 1
-    while fact < f_max:
-        fact += 1
-        if i % fact == 0:
-            f_low = fact
-            f_high = i/fact
-            if f_low == f_high:  # repeated factors
-                f_high = 0
-            divsum += f_low + f_high
-    if divsum > i:
-        abund += [i, ]
-
-n = len(abund)
-raw = [i for i in range(i_max + 1)]
-for i in range(n, 0, -1):
-    high = i-1
-    low = 0
-    test = 0
-    while high >= low:
-        test = abund[high] + abund[low]
-        if test > i_max:
-            break
-        if test in raw:
-            raw.remove(test)
-        low += 1
+bound = 28123 
+abund = genAbundList(bound)
+n = findAbundSums(abund, bound)
 stop = time.time()
-print(sum(raw))
-print(len(raw))
+print(n)
 print('Time: {} seconds'.format(stop-start))
 # Answer: 4179871
 # Time: 3.21E+3 seconds
