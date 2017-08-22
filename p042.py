@@ -13,11 +13,9 @@
 # Using words.txt, a 16K text file containing nearly two-thousand common
 # English words, how many are triangle words?
 
-from decimal import *
 import time
 import csv
-getcontext().prec = 3
-start = time.clock()
+start = time.time()
 
 with open('files/p042_words.csv') as f:
         readCSV = csv.reader(f, delimiter=',')
@@ -49,6 +47,6 @@ for i in words:
         if temp in tri:
                 count += 1
 
-end = time.clock()
+stop = time.time()
 print(count)
-print("Processing Time:", Decimal(end) - Decimal(start), "seconds")
+print("Time: {} seconds".format(stop-start))

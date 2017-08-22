@@ -9,7 +9,6 @@
 
 import time
 import math
-# import winsound
 start = time.time()
 
 num_dig = 10
@@ -32,4 +31,3 @@ else:
 end = time.time()
 print(word)
 print('Processing Time: {} seconds'.format(end-start))
-# winsound.Beep(440, 1000)

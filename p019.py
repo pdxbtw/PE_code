@@ -35,7 +35,7 @@ def numSundays(start_year, end_year):
     for y in range(start_year, end_year+1):
         for month in months:
             if day_of_week == 0:
-                print('{} 1, {}'.format(month, y))
+                # print('{} 1, {}'.format(month, y))
                 n_sundays += 1
 
             day_of_week += mon_dict[month]

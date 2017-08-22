@@ -17,17 +17,19 @@ import time
 
 def distPowers(nmin, nmax):
     a_min = nmin
-    a_max = nmax 
+    a_max = nmax
     b_min = nmin
-    b_max = nmax 
-    powers = [[0 for i in range(a_max-a_min + 1)] for i in range(b_max-b_min + 1)]
+    b_max = nmax
+    powers = [[0 for i in range(a_max-a_min + 1)]
+              for i in range(b_max-b_min + 1)]
     for i in range(len(powers)):
         for j in range(len(powers[0])):
             powers[i][j] = (i + a_min) ** (j + b_min)
     return np.unique(powers)
 
+
 start = time.time()
-p = distPowers(2,100)
+p = distPowers(2, 100)
 stop = time.time()
 print(len(p))
 print("Time: {} seconds".format(stop-start))

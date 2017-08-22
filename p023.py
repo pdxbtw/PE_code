@@ -49,8 +49,9 @@ def findAbundSums(abundList, bound):
     n = (bound * (bound + 1) // 2) - abundSum
     return n
 
+
 start = time.time()
-bound = 28123 
+bound = 28123
 abund = genAbundList(bound)
 n = findAbundSums(abund, bound)
 stop = time.time()
