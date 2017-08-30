@@ -1,6 +1,3 @@
-#!/home/fure_j/Software/pypy3-2.4-linux_x86_64-portable/bin/pypy
-# !/home/wilson_b/anaconda3/bin/python
-
 # Project Euler - Problem 37
 # -----------------------------------------------------------------------------
 # The number 3797 has an interesting property. Being prime itself, it is
