@@ -11,9 +11,13 @@
 # What is the total of all the name scores in the file?
 
 import time
-start = time.time()
+import urllib.request
 
-f = open('p022_names.txt', 'r')
+start = time.time()
+url = 'https://projecteuler.net/project/resources/p022_names.txt'
+filename, header = urllib.request.urlretrieve(url, 'p022_names.txt')
+
+f = open(filename, 'r')
 s = f.read()
 f.close()
 s = s.replace(",", "\n")
