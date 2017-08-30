@@ -1,6 +1,3 @@
-#!/home/wilson_b/anaconda3/bin/python
-# !/home/fure_j/Software/pypy3-2.4-linux_x86_64-portable/bin/pypy
-
 # Project Euler - Problem 42
 # -----------------------------------------------------------------------------
 # The nth term of the sequence of triangle numbers if given by, tn=1/2(n(n+1));
@@ -15,9 +12,12 @@
 
 import time
 import csv
-start = time.time()
+import urllib.request
 
-with open('files/p042_words.csv') as f:
+start = time.time()
+url = 'https://projecteuler.net/project/resources/p042_words.txt'
+filename, header = urllib.request.urlretrieve(url, 'words.txt')
+with open(filename) as f:
         readCSV = csv.reader(f, delimiter=',')
         words = []
         for row in readCSV:
