@@ -20,48 +20,58 @@
 
 import math
 import time
-start = time.time()
 
-primes = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, )
-test_val = 30
-run = True
-isprime = True
-while test_val < int(1e4):
-    test_val += 1
-    stop = math.floor(math.sqrt(test_val))
-    isprime = True
-    for i in primes:
-        if i > stop:
-            break
-        if test_val % i == 0:
-            isprime = False
-            break
-    if isprime:
-        primes += (test_val,)
 
-streak_max = 1
-a_max = 0
-b_max = 0
-for a in range(-1000, 1000):
-    for b in primes:
-        if b > 1000:
-            break
-        n = 1
-        streak = 1
-        while True:
-            val = n**2 + a*n + b
-            if val in primes:
-                n += 1
-                streak += 1
-            else:
-                if streak > streak_max:
-                    streak_max = streak
-                    a_max = a
-                    b_max = b
-                    print("streak = ", streak_max, " a = ", a, " b = ", b)
+def primeSieve(bound):
+    aprox_primes = math.floor(bound / (math.log(bound) - 1.0836))
+    primes = [0] * aprox_primes
+    primes[0] = 2
+    n = 3
+    count = 1
+    while count < aprox_primes:
+        prime = True
+        max_search = math.sqrt(n)
+        for i in primes:
+            if i > max_search:
                 break
+            if not n % i:
+                prime = False
+                break
+        if prime:
+            primes[count] = n
+            count += 1
+        n += 2
+    return primes
 
+
+def findPrimeCoef(primes, bound):
+    streak_max = 1
+    a_max = 0
+    b_max = 0
+    for a in range(-bound, bound):
+        for b in primes:
+            if b > bound:
+                break
+            n = 1
+            streak = 1
+            while True:
+                val = n**2 + a*n + b
+                if val in primes:
+                    n += 1
+                    streak += 1
+                else:
+                    if streak > streak_max:
+                        streak_max = streak
+                        a_max = a
+                        b_max = b
+                    break
+    return streak_max, a_max, b_max
+
+
+start = time.time()
+primes = primeSieve(4000)
+streak_max, a, b = findPrimeCoef(primes, 1000)
 stop = time.time()
 print(streak_max)
-print(a_max * b_max)
+print(a * b)
 print("Time: {} seconds".format(stop-start))
