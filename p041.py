@@ -44,4 +44,4 @@ for p in permute([7, 6, 5, 4, 3, 2, 1]):
 
 end = time.time()
 print(max_prime)
-print('Processing Time: {} seconds'.format(end-start))
+print('Time: {} seconds'.format(end-start))
