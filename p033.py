@@ -11,42 +11,56 @@
 # find the value of the denominator.
 
 import time
+
+
+def findOddFractions():
+    num_l = []
+    den_l = []
+    nums = ("1", "2", "3", "4", "5", "6", "7", "8", "9")
+    for num in range(11, 99):
+        for den in range(11, 99):
+            for i in nums:
+                num_s = str(num)
+                den_s = str(den)
+                if (i in num_s) and (i in den_s):
+                    j = den_s.index(i)
+                    if j:
+                        den_n = int(den_s[0])
+                    else:
+                        den_n = int(den_s[1])
+
+                    k = num_s.index(i)
+                    if k:
+                        num_n = int(num_s[0])
+                    else:
+                        num_n = int(num_s[1])
+                    if den_n != 0:
+                        val_1 = num/den
+                        val_2 = num_n/den_n
+                        if (val_1 == val_2) and (val_1 < 1):
+                            # message = "Value 1 = {}/{}\tValue 2 = {}/{}"
+                            # print(message.format(num, den, num_n, den_n))
+                            den_l += [den_n]
+                            num_l += [num_n]
+    prod_n = 1
+    prod_d = 1
+    for ind, _ in enumerate(den_l):
+        prod_n *= num_l[ind]
+        prod_d *= den_l[ind]
+    i = 2
+
+    # Simplify fraction
+    while i <= prod_n:
+        if (prod_n % i == 0) and (prod_d % i == 0):
+            prod_n /= i
+            prod_d /= i
+        else:
+            i += 1
+    return prod_d
+
+
 start = time.time()
-
-num_l = []
-den_l = []
-nums = ("1", "2", "3", "4", "5", "6", "7", "8", "9")
-for num in range(11, 99):
-    for den in range(11, 99):
-        for i in nums:
-            num_s = str(num)
-            den_s = str(den)
-            if (i in num_s) and (i in den_s):
-                j = den_s.index(i)
-                if j:
-                    den_n = int(den_s[0])
-                else:
-                    den_n = int(den_s[1])
-
-                k = num_s.index(i)
-                if k:
-                    num_n = int(num_s[0])
-                else:
-                    num_n = int(num_s[1])
-                if den_n != 0:
-                    val_1 = num/den
-                    val_2 = num_n/den_n
-                    if (val_1 == val_2) and (val_1 < 1):
-                        print("Value 1 =", str(num), "/", str(den),
-                              "\tValue 2 = ", str(num_n), "/", str(den_n))
-                        time.sleep(0.5)
-                        den_l += [den_n]
-                        num_l += [num_n]
-prod_n = 1
-prod_d = 1
-for i in range(len(den_l)):
-    prod_n *= num_l[i]
-    prod_d *= den_l[i]
+prod_d = findOddFractions()
 stop = time.time()
-print(str(prod_n), "/", str(prod_d))
+print("{}".format(prod_d))
 print("Time: {} seconds".format(stop-start))
