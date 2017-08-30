@@ -13,14 +13,19 @@
 import time
 import csv
 import math
+import urllib.request
+
 # import pdb
 start = time.time()
 
-with open('files/p098_words.csv') as f:
-    data = csv.reader(f, delimiter=',')
-    w = []
-    for row in data:
-        w = row
+url = 'https://projecteuler.net/project/resources/p098_words.txt'
+filename, header = urllib.request.urlretrieve(url, 'words.txt')
+with open(filename) as f:
+        data = csv.reader(f, delimiter=',')
+        w = []
+        for row in data:
+                w = row
+
 words = []
 for i in range(1, 15):
     temp = []

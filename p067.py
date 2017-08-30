@@ -9,13 +9,16 @@
 # containing a triangle with one hundred rows.
 
 import time
+import urllib.request
 start = time.time()
 
 tri = [0]*100
 for i in range(100):
         tri[i] = [0]*(i+1)
 
-with open("./files/p067_triangle.txt") as data:
+url = 'https://projecteuler.net/project/resources/p067_triangle.txt'
+filename, header = urllib.request.urlretrieve(url, 'triangle.txt')
+with open(filename) as data:
     row = 0
     col = 0
     c = ''
