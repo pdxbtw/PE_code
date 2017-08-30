@@ -19,19 +19,20 @@
 # cycle in its decimal fraction part.
 
 import time
+import math
 
 
 def longRepeatDec(bound):
+    # Create list of ints within bound
     n = [i for i in range(3, bound+1)]
-    # Remove non repeating values
-    for i in range(5):
-        for j in range(10):
-            k = (5**i) * (2**j)
-            if k in n:
-                n.remove(k)
-            else:
-                break
-    print(len(n))
+    # Find all non-repeating
+    p2 = math.ceil(math.log(bound, 2))
+    p5 = math.ceil(math.log(bound, 5))
+    t = [(2**i)*(5**k) for i in range(p2) for k in range(p5)]
+    # Remove non-repeating values from int list
+    for i in t:
+        if i in n:
+            n.remove(i)
     return 0
 
 
