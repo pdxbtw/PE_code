@@ -20,7 +20,6 @@ def primeSieve(bound):
         for i in primeList:
             if i > searchStop:
                 break
-
             if not testVal % i:
                 prime = False
                 break
