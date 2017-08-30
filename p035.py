@@ -1,6 +1,3 @@
-#!/home/fure_j/Software/pypy3-2.4-linux_x86_64-portable/bin/pypy
-# !/home/wilson_b/anaconda3/bin/python
-
 # Project Euler - Problem 35
 # -----------------------------------------------------------------------------
 # The number, 197, is called a circular prime because all rotations of the
@@ -12,39 +9,56 @@ import math
 import time
 # import pdb
 # pdb.set_trace()
+
+
+def prime_sieve(bound):
+    aproxPrimes = bound / (math.log(bound) - 1.08366)   # Prime number theorem
+    primeList = [0] * math.floor(aproxPrimes)
+    primeList[0] = 2
+    testVal = 3
+    index = 1
+    while testVal <= bound:
+        prime = True
+        searchStop = math.sqrt(testVal)
+        for i in primeList:
+            if i > searchStop:
+                break
+            if not testVal % i:
+                prime = False
+                break
+        if prime:
+            primeList[index] = testVal
+            index += 1
+        testVal += 2
+    return primeList[0:index]
+
+
+def circ_primes(primes):
+    circ_prime = {1: 2, 2: 5}
+    count = 2
+    for p in primes:
+        c_prime = True
+        str_p = str(p)
+        if (
+                '0' in str_p or '2' in str_p or
+                '4' in str_p or '5' in str_p or
+                '6' in str_p or '8' in str_p):
+            continue
+        for n in str_p:
+            str_p = str_p[1:] + str_p[0]
+            if int(str_p) not in primes:
+                c_prime = False
+                break
+        if c_prime:
+            count += 1
+            circ_prime[count] = p
+    return len(circ_prime)
+
+
 start = time.time()
-
-count = 13
-primes = (2,)
-circ_prime = []
-test_val = 3
-prime = True
-run = True
-while run:
-    stop = math.floor(math.sqrt(test_val))
-    prime = True
-    for i in primes:
-        if i > stop:
-            break
-        if test_val % i == 0:
-            prime = False
-            break
-    if prime:
-        primes += (test_val, )
-    test_val += 2
-    if test_val > 1000000:
-        run = False
-for i in primes:
-    circ = True
-    num_s = str(i)
-    for j in range(len(num_s)-1):
-        num_s = num_s[1:] + num_s[0]
-        if int(num_s) not in primes:
-            circ = False
-            break
-    if circ:
-        circ_prime += [i]
-
+bound = 999999
+primes = prime_sieve(bound)
+ans = circ_primes(primes)
 stop = time.time()
-print(len(circ_prime))
+print(ans)
 print("Time: {} seconds".format(stop-start))
