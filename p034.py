@@ -8,21 +8,24 @@ import time
 import math
 # import pdb
 # pdb.set_trace()
+
+
+def curiousNumber():
+    sum_t = 0
+    count = 10
+    while count < 1e5:
+        num_s = str(count)
+        sum = 0
+        for i in range(len(num_s)):
+            sum += math.factorial(int(num_s[i]))
+        if sum == count:
+            sum_t += sum
+        count += 1
+    return sum_t
+
+
 start = time.time()
-
-sum_t = 0
-count = 10
-while count < 1e7:
-    num_s = str(count)
-    sum = 0
-    for i in range(len(num_s)):
-        sum += math.factorial(int(num_s[i]))
-    if sum == count:
-        sum_t += sum
-        print(count)
-    count += 1
-
-
+sum_t = curiousNumber()
 stop = time.time()
 print(sum_t)
 print("Time: {} seconds".format(stop-start))
