@@ -18,16 +18,16 @@ order_num -= 1
 fact = [math.factorial(i+1) for i in range(num_dig)]
 temp = [0, ]
 if order_num > fact[-1]:
-        print('The index selected is too high!')
+    print('The index selected is too high!')
 else:
-        count = 0
-        for i in range(len(fact)-1, 0, -1):
-                shift = int(order_num // fact[i-1])
-                temp = word.pop(count + shift)
-                word.insert(count, temp)
-                order_num %= fact[i-1]
-                count += 1
+    count = 0
+    for i in range(len(fact)-1, 0, -1):
+        shift = int(order_num // fact[i-1])
+        temp = word.pop(count + shift)
+        word.insert(count, temp)
+        order_num %= fact[i-1]
+        count += 1
 
 end = time.time()
 print(word)
-print('Processing Time: {} seconds'.format(end-start))
+print('Time: {} seconds'.format(end-start))
