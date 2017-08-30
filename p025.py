@@ -9,22 +9,22 @@
 # 1000 digits?
 
 import time
+
+
+def fibonacciOrder(order):
+    a, b = 0, 1
+    index = 1
+    while True:
+        a, b = b, a + b
+        index += 1
+        if len(str(b)) == order:
+            break
+    return index
+
+
 start = time.time()
-
-a = 0
-b = 1
-fib = a + b
-index = 2
-max_dig = 1000
-while True:
-    a = b
-    b = fib
-    fib = a + b
-    index += 1
-    fib_s = str(fib)
-    if len(fib_s) == max_dig:
-        break
-
+n_dig = 1000
+index = fibonacciOrder(n_dig)
 stop = time.time()
 print(index)
-print('Processing Time: {} seconds'.format(stop-start))
+print('Time: {} seconds'.format(stop-start))
